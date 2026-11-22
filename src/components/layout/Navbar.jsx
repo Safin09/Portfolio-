@@ -2,10 +2,10 @@
 import { NavLink } from 'react-router';
 
 const links = [
-  { label: 'Home', to: '/' },
-  { label: 'About', to: '/about' },
-  { label: 'Projects', to: '/projects' },
-  { label: 'Contact', to: '/contact' },
+  { label: 'Home', to: '#home' },
+  { label: 'About', to: '#about' },
+  { label: 'Projects', to: '#projects' },
+  { label: 'Contact', to: '#contact' },
 ];
 
 export default function Navbar() {
@@ -16,19 +16,11 @@ export default function Navbar() {
           Sajid<span className="text-lime-400">.</span>
         </NavLink>
 
-        <div className="flex gap-5 text-sm text-zinc-400">
+        <div className="hidden gap-6 text-sm text-zinc-400 sm:flex">
           {links.map((link) => (
-            <NavLink
-              key={link.to}
-              to={link.to}
-              className={({ isActive }) =>
-                isActive
-                  ? 'text-lime-400'
-                  : 'transition-colors hover:text-white'
-              }
-            >
+            <a key={link.to} href={link.to} className="transition-colors hover:text-lime-300">
               {link.label}
-            </NavLink>
+            </a>
           ))}
         </div>
       </nav>
